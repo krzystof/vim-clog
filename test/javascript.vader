@@ -1,0 +1,69 @@
+# Log a variable
+
+Given javascript:
+  let someResult = somefunction()
+
+Do:
+  w
+  :Clog\<CR>
+
+Expect:
+  let someResult = somefunction()
+  console.log('someResult >>>', someResult)
+
+===========================================================
+
+# Log a variable which an object takes multiple lines
+
+Given javascript:
+  let someResult = somefunction({
+    with: 'an object'
+  })
+
+Do:
+  w
+  :Clog\<CR>
+
+Expect:
+  let someResult = somefunction({
+    with: 'an object'
+  })
+  console.log('someResult >>>', someResult)
+
+===========================================================
+
+# Log the argument of an arrow function
+
+Given javascript:
+  somefunction(call => {
+    // whatever
+  })
+
+Do:
+  2w
+  :Clog\<CR>
+
+Expect:
+  somefunction(call => {
+    console.log('call >>>', call)
+    // whatever
+  })
+
+===========================================================
+
+# Log the argument of a normal function
+
+Given javascript:
+  somefunction(checkMe) {
+    // whatever
+  }
+
+Do:
+  2w
+  :Clog\<CR>
+
+Expect:
+  somefunction(checkMe) {
+    console.log('checkMe >>>', checkMe)
+    // whatever
+  }

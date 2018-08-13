@@ -1,0 +1,1 @@
+command! Clog call Clog()

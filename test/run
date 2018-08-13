@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eux
+
+vim -Nu <(cat << VIMRC
+filetype off
+set rtp+=~/.vim/plugged/vader.vim
+set rtp+=.
+set rtp+=after
+filetype plugin indent on
+set shiftwidth=2
+syntax enable
+VIMRC) -c 'Vader! test/javascript.vader'
