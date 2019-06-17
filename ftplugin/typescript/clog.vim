@@ -4,7 +4,7 @@ function! Clog()
   if getline('.') =~ pattern
     " Jump to the end of the block, in case we
     " are dealing with a multi-line object.
-    normal! $%
+    normal! %
   endif
   execute "normal! oconsole.log('" . word . " >>>', " . word . ")"
 endfunction

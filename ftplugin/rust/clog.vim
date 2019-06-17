@@ -6,5 +6,5 @@ function! Clog()
     " are dealing with a multi-line object.
     normal! $%
   endif
-  execute "normal! oconsole.log('" . word . " >>>', " . word . ")"
+  execute 'normal! oprintln!("' . word . ' >>> {:?}", ' . word . ');'
 endfunction
